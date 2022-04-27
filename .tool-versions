@@ -1,0 +1,4 @@
+# https://github.com/asdf-vm/asdf-erlang
+# https://hexdocs.pm/phoenix/installation.html
+erlang 24.3.3
+elixir 1.13.4-otp-24
