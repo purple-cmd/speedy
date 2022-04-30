@@ -35,9 +35,21 @@ defmodule SpeedyWeb.Router do
   # as long as you are also using SSL (which you should anyway).
   if Mix.env() in [:dev, :test] do
     import Phoenix.LiveDashboard.Router
+    alias SpeedyWeb.UserLive
 
     scope "/" do
       pipe_through :browser
+
+      live "/users", UserLive.Index, :index
+      live "/users/new", UserLive.Index, :new
+      live "/users/:id/edit", UserLive.Index, :edit
+
+      live "/users/:id", UserLive.Show, :show
+      live "/users/:id/show/edit", UserLive.Show, :edit
+
+      # live "/register"
+      # live "/login"
+      # live "/chat"
 
       live_dashboard "/dashboard", metrics: SpeedyWeb.Telemetry
     end
