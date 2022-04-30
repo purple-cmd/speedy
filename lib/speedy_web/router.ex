@@ -17,8 +17,7 @@ defmodule SpeedyWeb.Router do
   scope "/", SpeedyWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
-    get "/hello", HelloController, :index
+    get "/", HelloController, :index
   end
 
   # Other scopes may use custom stacks.
@@ -47,10 +46,9 @@ defmodule SpeedyWeb.Router do
       live "/users/:id", UserLive.Show, :show
       live "/users/:id/show/edit", UserLive.Show, :edit
 
-      # live "/register"
       # live "/login"
+      # live "/register"
       # live "/chat"
-
       live_dashboard "/dashboard", metrics: SpeedyWeb.Telemetry
     end
   end
